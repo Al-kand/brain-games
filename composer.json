@@ -1,8 +1,11 @@
 {
-    "name": "hexlet/code",
+    "name": "aleks/php-project-lvl1",
+    "description": "php project lvl1",
+    "type": "project",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Hexlet\\Code\\": "src/"
+            "Aleks\\PhpProjectLvl1\\": "src/"
         }
     },
     "authors": [
