@@ -6,7 +6,8 @@
     "autoload": {
         "psr-4": {
             "Aleks\\PhpProjectLvl1\\": "src/"
-        }
+        },
+        "files": ["src/Cli.php"]
     },
     "authors": [
         {

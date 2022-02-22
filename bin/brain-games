@@ -2,4 +2,9 @@
 
 <?php
 
-echo "Welcome to the Brain Games!\n";
+$autoloadPath = __DIR__ . '/../vendor/autoload.php';
+require_once $autoloadPath;
+
+use function Brain\Games\Cli\setUserName;
+
+setUserName();
