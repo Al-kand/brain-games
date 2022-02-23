@@ -1,5 +1,9 @@
 {
     "name": "aleks/php-project-lvl1",
+    "bin": [
+        "bin/brain-games",
+        "bin/brain-even"
+    ],
     "description": "php project lvl1",
     "type": "project",
     "license": "MIT",
@@ -7,7 +11,10 @@
         "psr-4": {
             "Aleks\\PhpProjectLvl1\\": "src/"
         },
-        "files": ["src/Cli.php"]
+        "files": [
+            "src/Cli.php",
+            "src/brain-even.php"
+        ]
     },
     "authors": [
         {
