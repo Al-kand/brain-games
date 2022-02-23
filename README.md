@@ -4,3 +4,5 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 
 [![Actions Status](https://github.com/Al-kand/php-project-lvl1/workflows/linter-test/badge.svg)](https://github.com/Al-kand/php-project-lvl1/actions)
+
+[![asciicast](https://asciinema.org/a/WGpXVd5yNeO7vpoVmjMBuoDCt.svg)](https://asciinema.org/a/WGpXVd5yNeO7vpoVmjMBuoDCt)
