@@ -38,3 +38,8 @@ function isContinue(string $task, string $correctAnswer): bool
     line("Let's try again, %s!", $name);
     return false;
 }
+
+function getRandomNumber($min = 1, $max = 9): int
+{
+    return rand($min, $max);
+}

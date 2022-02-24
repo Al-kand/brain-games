@@ -14,18 +14,13 @@ function playGame(): void
     $operators = ['+', '-', '*'];
 
     while ($continue) {
-        $arg1 = getRandomNumber();
-        $arg2 = getRandomNumber();
+        $arg1 = Engine\getRandomNumber();
+        $arg2 = Engine\getRandomNumber();
         $operator = $operators[array_rand($operators)];
         $task = "{$arg1} {$operator} {$arg2}";
         $correctAnswer = getCorrestAnswer($arg1, $arg2, $operator);
         $continue = Engine\isContinue($task, $correctAnswer);
     }
-}
-
-function getRandomNumber($min = 1, $max = 9): int
-{
-    return rand($min, $max);
 }
 
 function getCorrestAnswer(int $num1, int $num2, string $operator): int

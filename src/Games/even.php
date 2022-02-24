@@ -13,7 +13,7 @@ function playGame(): void
     $continue = true;
 
     while ($continue) {
-        $task = rand();
+        $task = Engine\getRandomNumber(0, 999);
         $correctAnswer = isBool($task) ? 'yes' : 'no';
         $continue = Engine\isContinue($task, $correctAnswer);
     }
