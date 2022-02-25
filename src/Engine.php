@@ -39,7 +39,7 @@ function isContinue(string $task, string $correctAnswer): bool
     return false;
 }
 
-function getRandomNumber($min = 1, $max = 9): int
+function getRandomNumber(int $min = 1, int $max = 9): int
 {
     return rand($min, $max);
 }
