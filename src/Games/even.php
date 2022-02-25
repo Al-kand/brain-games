@@ -16,7 +16,7 @@ function playGame(): void
         $random = Engine\getRandomNumber(0, 999);
         $task = (string) $random;
         $correctAnswer = isEven($random) ? 'yes' : 'no';
-        $continue = Engine\isContinue((string) $task, $correctAnswer);
+        $continue = Engine\isContinue($task, $correctAnswer);
     }
     return;
 }
