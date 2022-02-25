@@ -22,7 +22,7 @@ function playGame(): void
     }
 }
 
-function gcd($a, $b): int
+function gcd(int $a, int $b): int
 {
     $large = $a > $b ? $a : $b;
     $small = $a > $b ? $b : $a;

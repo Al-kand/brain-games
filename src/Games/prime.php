@@ -13,8 +13,9 @@ function playGame(): void
     $continue = true;
 
     while ($continue) {
-        $task = Engine\getRandomNumber(0, 99);
-        $correctAnswer = isPrime($task) ? 'yes' : 'no';
+        $random = Engine\getRandomNumber(0, 99);
+        $task = (string) $random;
+        $correctAnswer = isPrime($random) ? 'yes' : 'no';
         $continue = Engine\isContinue($task, $correctAnswer);
     }
     return;

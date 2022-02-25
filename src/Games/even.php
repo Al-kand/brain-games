@@ -13,14 +13,15 @@ function playGame(): void
     $continue = true;
 
     while ($continue) {
-        $task = (string) Engine\getRandomNumber(0, 999);
-        $correctAnswer = isBool($task) ? 'yes' : 'no';
-        $continue = Engine\isContinue($task, $correctAnswer);
+        $random = Engine\getRandomNumber(0, 999);
+        $task = (string) $random;
+        $correctAnswer = isEven($random) ? 'yes' : 'no';
+        $continue = Engine\isContinue((string) $task, $correctAnswer);
     }
     return;
 }
 
-function isBool(int $number): bool
+function isEven(int $number): bool
 {
     return $number % 2 === 0;
 }
