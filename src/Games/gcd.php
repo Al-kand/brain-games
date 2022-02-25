@@ -17,7 +17,7 @@ function playGame(): void
         $arg2 = Engine\getRandomNumber(1, 100);
 
         $task = "{$arg1} {$arg2}";
-        $correctAnswer = gcd($arg1, $arg2);
+        $correctAnswer = (string) gcd($arg1, $arg2);
         $continue = Engine\isContinue($task, $correctAnswer);
     }
 }

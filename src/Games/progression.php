@@ -16,7 +16,7 @@ function playGame(): void
         $length = Engine\getRandomNumber(5, 10);
         $hiddenKey = Engine\getRandomNumber(0, $length - 1);
         $progression = makeProgression($length);
-        $correctAnswer = $progression[$hiddenKey];
+        $correctAnswer = (string) $progression[$hiddenKey];
         $progression[$hiddenKey] = '..';
         $task = implode(' ', $progression);
 
@@ -24,7 +24,7 @@ function playGame(): void
     }
 }
 
-function makeProgression($length): array
+function makeProgression(int $length): array
 {
     $firstArg = Engine\getRandomNumber(1, 50);
     $step = Engine\getRandomNumber(2, 9);
