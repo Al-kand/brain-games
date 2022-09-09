@@ -8,10 +8,10 @@ const CONDITION = 'Find the greatest common divisor of given numbers.';
 
 function playGame(): void
 {
-    Engine\start(CONDITION);
-
     $continue = true;
     $count = 0;
+
+    Engine\start(CONDITION);
 
     while ($continue) {
         $arg1 = Engine\getRandomNumber(1, 100);

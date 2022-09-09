@@ -8,10 +8,10 @@ const CONDITION = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function playGame(): void
 {
-    Engine\start(CONDITION);
-
     $continue = true;
     $count = 0;
+
+    Engine\start(CONDITION);
 
     while ($continue) {
         $random = Engine\getRandomNumber(0, 999);

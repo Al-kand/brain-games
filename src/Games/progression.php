@@ -8,10 +8,10 @@ const CONDITION = 'What number is missing in the progression?';
 
 function playGame(): void
 {
-    Engine\start(CONDITION);
-
     $continue = true;
     $count = 0;
+
+    Engine\start(CONDITION);
 
     while ($continue) {
         $length = Engine\getRandomNumber(5, 10);

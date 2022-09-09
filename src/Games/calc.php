@@ -5,19 +5,20 @@ namespace Brain\Games\calc;
 use Brain\Engine;
 
 const CONDITION = 'What is the result of the expression?';
+const OPERATORS = ['+', '-', '*'];
 
 function playGame(): void
 {
-    Engine\start(CONDITION);
-
     $continue = true;
     $count = 0;
     $operators = ['+', '-', '*'];
 
+    Engine\start(CONDITION);
+
     while ($continue) {
         $arg1 = Engine\getRandomNumber();
         $arg2 = Engine\getRandomNumber();
-        $operator = $operators[array_rand($operators)];
+        $operator = $operators[array_rand(OPERATORS)];
         $task = "{$arg1} {$operator} {$arg2}";
         $correctAnswer = (string) getCorrestAnswer($arg1, $arg2, $operator);
         $count++;

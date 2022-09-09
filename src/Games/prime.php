@@ -8,10 +8,10 @@ const CONDITION = 'Answer "yes" if given number is prime. Otherwise answer "no".
 
 function playGame(): void
 {
-    Engine\start(CONDITION);
-
     $continue = true;
     $count = 0;
+
+    Engine\start(CONDITION);
 
     while ($continue) {
         $random = Engine\getRandomNumber(0, 99);
