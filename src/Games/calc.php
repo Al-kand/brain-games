@@ -4,13 +4,14 @@ namespace Brain\Games\calc;
 
 use Brain\Engine;
 
+const CONDITION = 'What is the result of the expression?';
+
 function playGame(): void
 {
-    $condition = 'What is the result of the expression?';
-
-    Engine\start($condition);
+    Engine\start(CONDITION);
 
     $continue = true;
+    $count = 0;
     $operators = ['+', '-', '*'];
 
     while ($continue) {
@@ -19,7 +20,8 @@ function playGame(): void
         $operator = $operators[array_rand($operators)];
         $task = "{$arg1} {$operator} {$arg2}";
         $correctAnswer = (string) getCorrestAnswer($arg1, $arg2, $operator);
-        $continue = Engine\isContinue($task, $correctAnswer);
+        $count++;
+        $continue = Engine\isContinue($task, $correctAnswer, $count);
     }
 }
 

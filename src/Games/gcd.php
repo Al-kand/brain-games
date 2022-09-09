@@ -4,13 +4,14 @@ namespace Brain\Games\gcd;
 
 use Brain\Engine;
 
+const CONDITION = 'Find the greatest common divisor of given numbers.';
+
 function playGame(): void
 {
-    $condition = 'Find the greatest common divisor of given numbers.';
-
-    Engine\start($condition);
+    Engine\start(CONDITION);
 
     $continue = true;
+    $count = 0;
 
     while ($continue) {
         $arg1 = Engine\getRandomNumber(1, 100);
@@ -18,7 +19,8 @@ function playGame(): void
 
         $task = "{$arg1} {$arg2}";
         $correctAnswer = (string) gcd($arg1, $arg2);
-        $continue = Engine\isContinue($task, $correctAnswer);
+        $count++;
+        $continue = Engine\isContinue($task, $correctAnswer, $count);
     }
 }
 

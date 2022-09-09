@@ -4,13 +4,14 @@ namespace Brain\Games\progression;
 
 use Brain\Engine;
 
+const CONDITION = 'What number is missing in the progression?';
+
 function playGame(): void
 {
-    $condition = 'What number is missing in the progression?';
-
-    Engine\start($condition);
+    Engine\start(CONDITION);
 
     $continue = true;
+    $count = 0;
 
     while ($continue) {
         $length = Engine\getRandomNumber(5, 10);
@@ -19,8 +20,8 @@ function playGame(): void
         $correctAnswer = (string) $progression[$hiddenKey];
         $progression[$hiddenKey] = '..';
         $task = implode(' ', $progression);
-
-        $continue = Engine\isContinue($task, $correctAnswer);
+        $count++;
+        $continue = Engine\isContinue($task, $correctAnswer, $count);
     }
 }
 
