@@ -7,16 +7,16 @@ use function cli\prompt;
 
 const MAX_COUNTS = 3;
 
-function start(string $condition): void
+function getPlayerName(string $condition): string
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
-    define("PLAYER_NAME", $name);
-    line("Hello, %s!", PLAYER_NAME);
+    line("Hello, %s!", $name);
     line($condition);
+    return $name;
 }
 
-function isContinue(string $task, string $correctAnswer, int $currentCount): bool
+function isContinue(string $task, string $correctAnswer, int $currentCount, string $playerName): bool
 {
     line("Question: %s", $task);
     $answer = prompt("Your answer");
@@ -26,12 +26,12 @@ function isContinue(string $task, string $correctAnswer, int $currentCount): boo
         if ($currentCount < MAX_COUNTS) {
             return true;
         }
-        line("Congratulations, %s!", PLAYER_NAME);
+        line("Congratulations, %s!", $playerName);
         return false;
     }
 
     line("'%s' is wrong answer ;(. Correct answer was '%s'.", $answer, $correctAnswer);
-    line("Let's try again, %s!", PLAYER_NAME);
+    line("Let's try again, %s!", $playerName);
     return false;
 }
 

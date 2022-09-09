@@ -11,14 +11,14 @@ function playGame(): void
     $continue = true;
     $count = 0;
 
-    Engine\start(CONDITION);
+    $playerName = Engine\getPlayerName(CONDITION);
 
     while ($continue) {
         $random = Engine\getRandomNumber(0, 999);
         $task = (string) $random;
         $correctAnswer = isEven($random) ? 'yes' : 'no';
         $count++;
-        $continue = Engine\isContinue($task, $correctAnswer, $count);
+        $continue = Engine\isContinue($task, $correctAnswer, $count, $playerName);
     }
     return;
 }

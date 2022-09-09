@@ -11,7 +11,7 @@ function playGame(): void
     $continue = true;
     $count = 0;
 
-    Engine\start(CONDITION);
+    $playerName = Engine\getPlayerName(CONDITION);
 
     while ($continue) {
         $length = Engine\getRandomNumber(5, 10);
@@ -21,7 +21,7 @@ function playGame(): void
         $progression[$hiddenKey] = '..';
         $task = implode(' ', $progression);
         $count++;
-        $continue = Engine\isContinue($task, $correctAnswer, $count);
+        $continue = Engine\isContinue($task, $correctAnswer, $count, $playerName);
     }
 }
 

@@ -11,18 +11,17 @@ function playGame(): void
 {
     $continue = true;
     $count = 0;
-    $operators = ['+', '-', '*'];
 
-    Engine\start(CONDITION);
+    $playerName = Engine\getPlayerName(CONDITION);
 
     while ($continue) {
         $arg1 = Engine\getRandomNumber();
         $arg2 = Engine\getRandomNumber();
-        $operator = $operators[array_rand(OPERATORS)];
+        $operator = OPERATORS[array_rand(OPERATORS)];
         $task = "{$arg1} {$operator} {$arg2}";
         $correctAnswer = (string) getCorrestAnswer($arg1, $arg2, $operator);
         $count++;
-        $continue = Engine\isContinue($task, $correctAnswer, $count);
+        $continue = Engine\isContinue($task, $correctAnswer, $count, $playerName);
     }
 }
 

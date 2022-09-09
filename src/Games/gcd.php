@@ -11,7 +11,7 @@ function playGame(): void
     $continue = true;
     $count = 0;
 
-    Engine\start(CONDITION);
+    $playerName = Engine\getPlayerName(CONDITION);
 
     while ($continue) {
         $arg1 = Engine\getRandomNumber(1, 100);
@@ -20,7 +20,7 @@ function playGame(): void
         $task = "{$arg1} {$arg2}";
         $correctAnswer = (string) gcd($arg1, $arg2);
         $count++;
-        $continue = Engine\isContinue($task, $correctAnswer, $count);
+        $continue = Engine\isContinue($task, $correctAnswer, $count, $playerName);
     }
 }
 
