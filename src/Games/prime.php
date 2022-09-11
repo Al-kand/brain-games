@@ -5,22 +5,22 @@ namespace Brain\Games\prime;
 use Brain\Engine;
 
 const CONDITION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const MAX_COUNTS = 3;
+const MIN_ARG = 1;
+const MAX_ARG = 100;
 
 function playGame(): void
 {
-    $continue = true;
-    $count = 0;
+    $gameData = [];
 
-    $playerName = Engine\getPlayerName(CONDITION);
-
-    while ($continue) {
-        $random = Engine\getRandomNumber(0, 99);
+    for ($i = 0; $i < MAX_COUNTS; $i++) {
+        $random = rand(MIN_ARG, MAX_ARG);
         $task = (string) $random;
         $correctAnswer = isPrime($random) ? 'yes' : 'no';
-        $count++;
-        $continue = Engine\isContinue($task, $correctAnswer, $count, $playerName);
+        $gameData[] = compact('task', 'correctAnswer');
     }
-    return;
+
+    Engine\runGame(CONDITION, $gameData);
 }
 
 function isPrime(int $number): bool

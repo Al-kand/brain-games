@@ -5,30 +5,38 @@ namespace Brain\Games\progression;
 use Brain\Engine;
 
 const CONDITION = 'What number is missing in the progression?';
+const MAX_COUNTS = 3;
+
+const MIN_LENHGHT = 5;
+const MAX_LENGHT = 10;
+
+const MIN_ARG = 1;
+const MAX_ARG = 50;
+
+const MIN_STEP = 2;
+const MAX_STEP = 9;
 
 function playGame(): void
 {
-    $continue = true;
-    $count = 0;
+    $gameData = [];
 
-    $playerName = Engine\getPlayerName(CONDITION);
-
-    while ($continue) {
-        $length = Engine\getRandomNumber(5, 10);
-        $hiddenKey = Engine\getRandomNumber(0, $length - 1);
+    for ($i = 0; $i < MAX_COUNTS; $i++) {
+        $length = rand(MIN_LENHGHT, MAX_LENGHT);
+        $hiddenKey = rand(0, $length - 1);
         $progression = makeProgression($length);
         $correctAnswer = (string) $progression[$hiddenKey];
         $progression[$hiddenKey] = '..';
         $task = implode(' ', $progression);
-        $count++;
-        $continue = Engine\isContinue($task, $correctAnswer, $count, $playerName);
+        $gameData[] = compact('task', 'correctAnswer');
     }
+
+    Engine\runGame(CONDITION, $gameData);
 }
 
 function makeProgression(int $length): array
 {
-    $firstArg = Engine\getRandomNumber(1, 50);
-    $step = Engine\getRandomNumber(2, 9);
+    $firstArg = rand(MIN_ARG, MAX_ARG);
+    $step = rand(MIN_STEP, MAX_STEP);
     $result = [$firstArg];
 
     for ($i = 1; $i < $length; $i++) {

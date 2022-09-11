@@ -5,23 +5,24 @@ namespace Brain\Games\gcd;
 use Brain\Engine;
 
 const CONDITION = 'Find the greatest common divisor of given numbers.';
+const MAX_COUNTS = 3;
+const MIN_ARG = 1;
+const MAX_ARG = 100;
 
 function playGame(): void
 {
-    $continue = true;
-    $count = 0;
+    $gameData = [];
 
-    $playerName = Engine\getPlayerName(CONDITION);
-
-    while ($continue) {
-        $arg1 = Engine\getRandomNumber(1, 100);
-        $arg2 = Engine\getRandomNumber(1, 100);
-
+    for ($i = 0; $i < MAX_COUNTS; $i++) {
+        $arg1 = rand(MIN_ARG, MAX_ARG);
+        $arg2 = rand(MIN_ARG, MAX_ARG);
         $task = "{$arg1} {$arg2}";
         $correctAnswer = (string) gcd($arg1, $arg2);
-        $count++;
-        $continue = Engine\isContinue($task, $correctAnswer, $count, $playerName);
+
+        $gameData[] = compact('task', 'correctAnswer');
     }
+
+    Engine\runGame(CONDITION, $gameData);
 }
 
 function gcd(int $a, int $b): int

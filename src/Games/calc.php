@@ -6,23 +6,24 @@ use Brain\Engine;
 
 const CONDITION = 'What is the result of the expression?';
 const OPERATORS = ['+', '-', '*'];
+const MAX_COUNTS = 3;
+const MIN_ARG = 0;
+const MAX_ARG = 9;
 
 function playGame(): void
 {
-    $continue = true;
-    $count = 0;
+    $gameData = [];
 
-    $playerName = Engine\getPlayerName(CONDITION);
-
-    while ($continue) {
-        $arg1 = Engine\getRandomNumber();
-        $arg2 = Engine\getRandomNumber();
+    for ($i = 0; $i < MAX_COUNTS; $i++) {
+        $arg1 = rand(MIN_ARG, MAX_ARG);
+        $arg2 = rand(MIN_ARG, MAX_ARG);
         $operator = OPERATORS[array_rand(OPERATORS)];
         $task = "{$arg1} {$operator} {$arg2}";
         $correctAnswer = (string) getCorrestAnswer($arg1, $arg2, $operator);
-        $count++;
-        $continue = Engine\isContinue($task, $correctAnswer, $count, $playerName);
+        $gameData[] = compact('task', 'correctAnswer');
     }
+
+    Engine\runGame(CONDITION, $gameData);
 }
 
 function getCorrestAnswer(int $num1, int $num2, string $operator): ?int

@@ -5,22 +5,22 @@ namespace Brain\Games\even;
 use Brain\Engine;
 
 const CONDITION = 'Answer "yes" if the number is even, otherwise answer "no".';
+const MAX_COUNTS = 3;
+const MIN_ARG = 0;
+const MAX_ARG = 999;
 
 function playGame(): void
 {
-    $continue = true;
-    $count = 0;
+    $gameData = [];
 
-    $playerName = Engine\getPlayerName(CONDITION);
-
-    while ($continue) {
-        $random = Engine\getRandomNumber(0, 999);
+    for ($i = 0; $i < MAX_COUNTS; $i++) {
+        $random = rand(MIN_ARG, MAX_ARG);
         $task = (string) $random;
         $correctAnswer = isEven($random) ? 'yes' : 'no';
-        $count++;
-        $continue = Engine\isContinue($task, $correctAnswer, $count, $playerName);
+        $gameData[] = compact('task', 'correctAnswer');
     }
-    return;
+
+    Engine\runGame(CONDITION, $gameData);
 }
 
 function isEven(int $number): bool
