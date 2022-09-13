@@ -2,7 +2,7 @@
 
 namespace Brain\Games\progression;
 
-use Brain\Engine;
+use function Brain\Engine\runGame;
 
 const CONDITION = 'What number is missing in the progression?';
 const MAX_COUNTS = 3;
@@ -30,7 +30,7 @@ function playGame(): void
         $gameData[] = compact('task', 'correctAnswer');
     }
 
-    Engine\runGame(CONDITION, $gameData);
+    runGame(CONDITION, $gameData);
 }
 
 function makeProgression(int $length): array

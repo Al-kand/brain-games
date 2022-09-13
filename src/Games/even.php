@@ -2,7 +2,7 @@
 
 namespace Brain\Games\even;
 
-use Brain\Engine;
+use function Brain\Engine\runGame;
 
 const CONDITION = 'Answer "yes" if the number is even, otherwise answer "no".';
 const MAX_COUNTS = 3;
@@ -20,7 +20,7 @@ function playGame(): void
         $gameData[] = compact('task', 'correctAnswer');
     }
 
-    Engine\runGame(CONDITION, $gameData);
+    runGame(CONDITION, $gameData);
 }
 
 function isEven(int $number): bool

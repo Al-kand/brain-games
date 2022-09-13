@@ -2,7 +2,7 @@
 
 namespace Brain\Games\calc;
 
-use Brain\Engine;
+use function Brain\Engine\runGame;
 
 const CONDITION = 'What is the result of the expression?';
 const OPERATORS = ['+', '-', '*'];
@@ -23,7 +23,7 @@ function playGame(): void
         $gameData[] = compact('task', 'correctAnswer');
     }
 
-    Engine\runGame(CONDITION, $gameData);
+    runGame(CONDITION, $gameData);
 }
 
 function getCorrestAnswer(int $num1, int $num2, string $operator): ?int
