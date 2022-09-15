@@ -8,7 +8,7 @@
         "bin/brain-progression",
         "bin/brain-prime"
     ],
-    "description": "php project lvl1",
+    "description": "Brain Games",
     "type": "project",
     "license": "MIT",
     "autoload": {
