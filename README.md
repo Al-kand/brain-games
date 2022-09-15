@@ -21,7 +21,7 @@ cd brain-games
 ```
 3. Run
 ```
-composer install
+make install
 ```
 ## How to play
 ### Brain Calc
@@ -32,7 +32,7 @@ make brain-calc
 You need enter the correct result of the expression
 #### Demo:
 [![asciicast](https://asciinema.org/a/0VWkemCWwisr3hE74XUomJcTA.svg)](https://asciinema.org/a/0VWkemCWwisr3hE74XUomJcTA)
-## Brain Even
+### Brain Even
 To start the game type
 ```
 make brain-even
@@ -41,7 +41,7 @@ make brain-even
 Enter `yes` if the number is even, otherwise enter `no`.
 #### Demo:
 [![asciicast](https://asciinema.org/a/WGpXVd5yNeO7vpoVmjMBuoDCt.svg)](https://asciinema.org/a/WGpXVd5yNeO7vpoVmjMBuoDCt)
-## Brain GCD
+### Brain GCD
 To start the game type
 ```
 make brain-gcd
@@ -49,7 +49,7 @@ make brain-gcd
 Find and enter the greatest common divisor of given numbers.
 #### Demo:
 [![asciicast](https://asciinema.org/a/n3UwZ2ikvT8kop9EJWJv4WYZM.svg)](https://asciinema.org/a/n3UwZ2ikvT8kop9EJWJv4WYZM)
-## Brain Progression
+### Brain Progression
 To start the game type
 ```
 make brain-progression
@@ -57,7 +57,7 @@ make brain-progression
 Enter `yes` if given number is prime. Otherwise answer `no`.
 #### Demo:
 [![asciicast](https://asciinema.org/a/rHw35lIU3pnrW2crCXxqATwGQ.svg)](https://asciinema.org/a/rHw35lIU3pnrW2crCXxqATwGQ)
-## Brain Prime
+### Brain Prime
 To start the game type
 ```
 make brain-prime
