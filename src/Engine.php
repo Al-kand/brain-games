@@ -5,13 +5,28 @@ namespace Brain\Engine;
 use function cli\line;
 use function cli\prompt;
 
-function runGame(int $count, string $condition, string $namespase): void
+function runGame(int $count, string $condition, string $game): void
 {
     $data = [];
 
-    $getParams = $namespase . '\makeGameData';
     for ($i = 0; $i < $count; $i++) {
-        $data[] = $getParams();
+        switch ($game) {
+            case 'calc':
+                $data[] = \Brain\Games\calc\makeGameData();
+                break;
+            case 'even':
+                $data[] = \Brain\Games\even\makeGameData();
+                break;
+            case 'gcd':
+                $data[] = \Brain\Games\gcd\makeGameData();
+                break;
+            case 'prime':
+                $data[] = \Brain\Games\prime\makeGameData();
+                break;
+            case 'progression':
+                $data[] = \Brain\Games\progression\makeGameData();
+                break;
+        }
     }
 
     play($condition, $data);

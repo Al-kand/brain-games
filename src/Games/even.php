@@ -8,10 +8,11 @@ const CONDITION = 'Answer "yes" if the number is even, otherwise answer "no".';
 const MAX_COUNTS = 3;
 const MIN_ARG = 0;
 const MAX_ARG = 999;
+const GAME = 'even';
 
 function playGame(): void
 {
-    runGame(MAX_COUNTS, CONDITION, __NAMESPACE__);
+    runGame(MAX_COUNTS, CONDITION, GAME);
 }
 
 function makeGameData(): array

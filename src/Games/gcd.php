@@ -8,10 +8,11 @@ const CONDITION = 'Find the greatest common divisor of given numbers.';
 const MAX_COUNTS = 3;
 const MIN_ARG = 1;
 const MAX_ARG = 100;
+const GAME = 'gcd';
 
 function playGame(): void
 {
-    runGame(MAX_COUNTS, CONDITION, __NAMESPACE__);
+    runGame(MAX_COUNTS, CONDITION, GAME);
 }
 
 function makeGameData(): array

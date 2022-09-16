@@ -9,10 +9,11 @@ const OPERATORS = ['+', '-', '*'];
 const MAX_COUNTS = 3;
 const MIN_ARG = 0;
 const MAX_ARG = 9;
+const GAME = 'calc';
 
 function playGame(): void
 {
-    runGame(MAX_COUNTS, CONDITION, __NAMESPACE__);
+    runGame(MAX_COUNTS, CONDITION, GAME);
 }
 
 function makeGameData(): array

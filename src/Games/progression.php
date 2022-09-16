@@ -16,9 +16,11 @@ const MAX_ARG = 50;
 const MIN_STEP = 2;
 const MAX_STEP = 9;
 
+const GAME = 'progression';
+
 function playGame(): void
 {
-    runGame(MAX_COUNTS, CONDITION, __NAMESPACE__);
+    runGame(MAX_COUNTS, CONDITION, GAME);
 }
 
 function makeGameData(): array
