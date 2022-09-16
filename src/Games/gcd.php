@@ -11,18 +11,17 @@ const MAX_ARG = 100;
 
 function playGame(): void
 {
-    $gameData = [];
+    runGame(MAX_COUNTS, CONDITION, __NAMESPACE__);
+}
 
-    for ($i = 0; $i < MAX_COUNTS; $i++) {
-        $arg1 = rand(MIN_ARG, MAX_ARG);
-        $arg2 = rand(MIN_ARG, MAX_ARG);
-        $task = "{$arg1} {$arg2}";
-        $correctAnswer = (string) gcd($arg1, $arg2);
+function makeGameData(): array
+{
+    $arg1 = rand(MIN_ARG, MAX_ARG);
+    $arg2 = rand(MIN_ARG, MAX_ARG);
+    $task = "{$arg1} {$arg2}";
+    $correctAnswer = (string) gcd($arg1, $arg2);
 
-        $gameData[] = compact('task', 'correctAnswer');
-    }
-
-    runGame(CONDITION, $gameData);
+    return compact('task', 'correctAnswer');
 }
 
 function gcd(int $a, int $b): int

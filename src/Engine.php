@@ -5,7 +5,19 @@ namespace Brain\Engine;
 use function cli\line;
 use function cli\prompt;
 
-function runGame(string $condition, array $data): void
+function runGame(int $count, string $condition, string $namespase): void
+{
+    $data = [];
+
+    $getParams = $namespase . '\makeGameData';
+    for ($i = 0; $i < $count; $i++) {
+        $data[] = $getParams();
+    }
+
+    play($condition, $data);
+}
+
+function play(string $condition, array $data): void
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');

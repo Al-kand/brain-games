@@ -18,19 +18,18 @@ const MAX_STEP = 9;
 
 function playGame(): void
 {
-    $gameData = [];
+    runGame(MAX_COUNTS, CONDITION, __NAMESPACE__);
+}
 
-    for ($i = 0; $i < MAX_COUNTS; $i++) {
-        $length = rand(MIN_LENHGHT, MAX_LENGHT);
-        $hiddenKey = rand(0, $length - 1);
-        $progression = makeProgression($length);
-        $correctAnswer = (string) $progression[$hiddenKey];
-        $progression[$hiddenKey] = '..';
-        $task = implode(' ', $progression);
-        $gameData[] = compact('task', 'correctAnswer');
-    }
-
-    runGame(CONDITION, $gameData);
+function makeGameData(): array
+{
+    $length = rand(MIN_LENHGHT, MAX_LENGHT);
+    $hiddenKey = rand(0, $length - 1);
+    $progression = makeProgression($length);
+    $correctAnswer = (string) $progression[$hiddenKey];
+    $progression[$hiddenKey] = '..';
+    $task = implode(' ', $progression);
+    return compact('task', 'correctAnswer');
 }
 
 function makeProgression(int $length): array

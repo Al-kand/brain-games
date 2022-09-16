@@ -11,16 +11,15 @@ const MAX_ARG = 100;
 
 function playGame(): void
 {
-    $gameData = [];
+    runGame(MAX_COUNTS, CONDITION, __NAMESPACE__);
+}
 
-    for ($i = 0; $i < MAX_COUNTS; $i++) {
-        $random = rand(MIN_ARG, MAX_ARG);
-        $task = (string) $random;
-        $correctAnswer = isPrime($random) ? 'yes' : 'no';
-        $gameData[] = compact('task', 'correctAnswer');
-    }
-
-    runGame(CONDITION, $gameData);
+function makeGameData(): array
+{
+    $random = rand(MIN_ARG, MAX_ARG);
+    $task = (string) $random;
+    $correctAnswer = isPrime($random) ? 'yes' : 'no';
+    return compact('task', 'correctAnswer');
 }
 
 function isPrime(int $number): bool
